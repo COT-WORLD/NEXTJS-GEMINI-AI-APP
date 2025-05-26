@@ -44,10 +44,14 @@ const Page = () => {
         description: "Incorrect email or password",
         variant: "destructive",
       });
-    }
-
-    if (result?.url) {
+    } else if (result?.ok) {
       router.replace("/dashboard");
+    } else {
+      toast({
+        title: "Login Failed",
+        description: "An unexpected error occurred during login.",
+        variant: "destructive",
+      });
     }
   };
 
