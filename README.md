@@ -4,6 +4,21 @@
 
 Welcome to **Unforeseen Message App**! This is a Next.js application built with React and TypeScript, MongoDB Database, Google Gemini AI, Zod, Next-auth(Credentials and JWT strategy), Resend email, Shadcn UI library and react-hook-form. It features server-side rendering, static site generation, and API routes, providing a modern and powerful framework for sending annonymous message to users.
 
+## Website Link
+
+You can access the website at the following link:
+
+[Unforeseen-Message](https://nextjs-gemini-ai-app.vercel.app/dashboard)
+
+## Login Details
+
+For testing purposes, you can use the following credentials to log in:
+
+- **Email**: `ema@sharklasers.com`
+- **Password**: `password123`
+
+> Note: These credentials are for demo/testing purposes only.
+
 # 🚀 Features
 
 - 🔐 Authentication: Secure login and registration via NextAuth (Credentials & JWT)
