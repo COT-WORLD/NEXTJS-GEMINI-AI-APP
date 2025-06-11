@@ -54,7 +54,7 @@ const Page = () => {
         variant: "destructive",
       });
     } else if (result?.ok) {
-      router.replace("/dashboard");
+      router.push("/dashboard");
     } else {
       toast({
         title: "Login Failed",
