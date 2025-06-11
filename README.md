@@ -1,14 +1,14 @@
 # 🌟 NEXTJS-GEMINI-AI-APP
 
-# ✉️ Unforeseen Message
+# ✉️ AnonMessage
 
-Welcome to **Unforeseen Message App**! This is a Next.js application built with React and TypeScript, MongoDB Database, Google Gemini AI, Zod, Next-auth(Credentials and JWT strategy), Resend email, Shadcn UI library and react-hook-form. It features server-side rendering, static site generation, and API routes, providing a modern and powerful framework for sending annonymous message to users.
+Welcome to **AnonMessage App**! This is a Next.js application built with React and TypeScript, MongoDB Database, Google Gemini AI, Zod, Next-auth(Credentials and JWT strategy), Resend email, Shadcn UI library and react-hook-form. It features server-side rendering, static site generation, and API routes, providing a modern and powerful framework for sending annonymous message to users.
 
 ## Website Link
 
 You can access the website at the following link:
 
-[Unforeseen-Message](https://nextjs-gemini-ai-app.vercel.app/dashboard)
+[AnonMessage](https://nextjs-gemini-ai-app.vercel.app/dashboard)
 
 ## Login Details
 

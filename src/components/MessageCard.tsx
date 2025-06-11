@@ -25,7 +25,7 @@ import { ApiResponse } from "@/types/ApiResponse";
 import { useToast } from "@/hooks/use-toast";
 import { Message } from "@/model/User";
 import moment from "moment";
-
+import { BorderBeam } from "@/components/magicui/border-beam";
 type MessageCardProps = {
   message: Message;
   onMessageDelete: (messageId: string) => void;
@@ -47,7 +47,7 @@ const MessageCard = ({ message, onMessageDelete }: MessageCardProps) => {
 
   return (
     <div>
-      <Card className="flex flex-col justify-between h-52">
+      <Card className="flex flex-col justify-between h-52 overflow-hidden relative">
         <CardHeader className="grid grid-cols-5 gap-3 items-start h-full">
           <CardTitle className="text-lg col-span-4" title={message.content}>
             {message.content}
@@ -78,6 +78,17 @@ const MessageCard = ({ message, onMessageDelete }: MessageCardProps) => {
             {moment(message.createdAt).fromNow()}
           </CardDescription>
         </CardHeader>
+        <BorderBeam
+          duration={6}
+          size={400}
+          className="from-transparent via-red-500 to-transparent"
+        />
+        <BorderBeam
+          duration={6}
+          delay={3}
+          size={400}
+          className="from-transparent via-blue-500 to-transparent"
+        />
       </Card>
     </div>
   );

@@ -4,13 +4,16 @@ import { getToken } from "next-auth/jwt";
 
 const publicPaths = ["/sign-in", "/sign-up", "/verify-code", "/"];
 
+const isPublicPath = (pathname: string): boolean => {
+  return publicPaths.includes(pathname) || pathname.startsWith("/verify-code/");
+};
+
 export default withAuth(
   async function middleware(request) {
     const token = await getToken({ req: request });
-
     const url = request.nextUrl;
 
-    if (token && publicPaths.includes(url.pathname)) {
+    if (token && isPublicPath(url.pathname)) {
       return NextResponse.redirect(new URL("/dashboard", request.url));
     }
 
@@ -21,7 +24,7 @@ export default withAuth(
       authorized: async ({ token, req }) => {
         const url = req.nextUrl;
 
-        if (publicPaths.includes(url.pathname)) {
+        if (isPublicPath(url.pathname)) {
           return true;
         }
 

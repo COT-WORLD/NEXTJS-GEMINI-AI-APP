@@ -21,6 +21,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
+import { BorderBeam } from "@/components/magicui/border-beam";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const Page = () => {
   const [username, setUsername] = useState("");
@@ -95,94 +104,118 @@ const Page = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
-        <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
-            Join Unforseen Message
-          </h1>
-          <p className="mb-4">Sign up to start your Unforseen advanture</p>
-        </div>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <FormField
-              name="username"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Username</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="username"
-                      {...field}
-                      onChange={(e) => {
-                        field.onChange(e);
-                        setUsername(e.target.value);
-                      }}
-                    />
-                  </FormControl>
-                  {isCheckingUsername && <Loader2 className="animate-spin" />}
-                  <p
-                    className={`text-sm ${usernameMessage === "Username is unique and available" ? "text-green-500" : "text-red-500"}`}
-                  >
-                    {usernameMessage}
-                  </p>
-                  <FormMessage />
-                </FormItem>
+    <div className="flex-grow grid place-items-center px-4">
+      <Card className="relative w-[480px] overflow-hidden">
+        <CardHeader>
+          <CardTitle>
+            <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
+              Join AnonMessage
+            </h1>
+          </CardTitle>
+          <CardDescription>
+            Sign up to start your AnonMessage advanture
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <FormField
+                name="username"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Username</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="username"
+                        {...field}
+                        onChange={(e) => {
+                          field.onChange(e);
+                          setUsername(e.target.value);
+                        }}
+                      />
+                    </FormControl>
+                    {isCheckingUsername && <Loader2 className="animate-spin" />}
+                    <p
+                      className={`text-sm ${usernameMessage === "Username is unique and available" ? "text-green-500" : "text-red-500"}`}
+                    >
+                      {usernameMessage}
+                    </p>
+                    <FormMessage />
+                  </FormItem>
 
-                //TODo: video time 5:59:17
-              )}
-            />
-            <FormField
-              name="email"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder="email" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              name="password"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Password</FormLabel>
-                  <FormControl>
-                    <Input type="password" placeholder="password" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+                  //TODo: video time 5:59:17
+                )}
+              />
+              <FormField
+                name="email"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input placeholder="email" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name="password"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Password</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="password"
+                        placeholder="password"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-            <Button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait
-                </>
-              ) : (
-                "Signup"
-              )}
-            </Button>
-          </form>
-        </Form>
-        <div className="text-center mt-4">
-          <p>
-            Already a member?{" "}
-            <Link
-              href={"/sign-in"}
-              className="text-blue-600 hover:text-blue-800"
-            >
-              Sign in
-            </Link>
-          </p>
-        </div>
-      </div>
+              <Button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please
+                    wait
+                  </>
+                ) : (
+                  "Signup"
+                )}
+              </Button>
+            </form>
+          </Form>
+        </CardContent>
+        <CardFooter className="flex justify-between">
+          <div className="text-center mt-4">
+            <p>
+              Already a member?{" "}
+              <Link
+                href={"/sign-in"}
+                className="text-blue-600 hover:text-blue-800"
+              >
+                Sign in
+              </Link>
+            </p>
+          </div>
+        </CardFooter>
+        <BorderBeam
+          duration={6}
+          size={400}
+          className="from-transparent via-red-500 to-transparent"
+        />
+        <BorderBeam
+          duration={6}
+          delay={3}
+          size={400}
+          className="from-transparent via-blue-500 to-transparent"
+        />
+      </Card>
     </div>
   );
 };

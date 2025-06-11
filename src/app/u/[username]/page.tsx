@@ -18,6 +18,14 @@ import { useParams } from "next/navigation";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { BorderBeam } from "@/components/magicui/border-beam";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 function Message() {
   const [suggestedMessages, setSuggestedMessages] = useState([]);
@@ -74,15 +82,16 @@ function Message() {
   };
   return (
     <>
-      <div className="w-full flex flex-col bg-gray-100">
-        <div className="w-full flex flex-col flex-grow justify-start items-center p-8">
-          <div className="w-full max-w-3xl bg-white rounded-lg shadow-md p-8 space-y-8">
-            <div className="text-center">
+      <div className="flex-grow grid place-items-center px-4">
+        <Card className="relative w-[800px] overflow-hidden">
+          <CardHeader>
+            <CardTitle>
               <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
                 Public Profile Link
               </h1>
-            </div>
-
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
@@ -109,7 +118,8 @@ function Message() {
                 <Button type="submit">Send It</Button>
               </form>
             </Form>
-
+          </CardContent>
+          <CardFooter className="flex flex-col items-start space-y-4">
             <Button onClick={fecthAIMessage}>Suggest Messages</Button>
             <h1>Click on any message below to select it.</h1>
 
@@ -135,8 +145,19 @@ function Message() {
                 <p>No messages to display</p>
               )}
             </div>
-          </div>
-        </div>
+          </CardFooter>
+          <BorderBeam
+            duration={6}
+            size={400}
+            className="from-transparent via-red-500 to-transparent"
+          />
+          <BorderBeam
+            duration={6}
+            delay={3}
+            size={400}
+            className="from-transparent via-blue-500 to-transparent"
+          />
+        </Card>
       </div>
     </>
   );
