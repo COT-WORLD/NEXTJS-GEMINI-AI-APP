@@ -141,7 +141,7 @@ function Dashboard() {
 
   return (
     <>
-      <div className="my-8 mx-4 md:mx-8 lg:mx-auto p-6 bg-white rounded w-full max-w-6xl">
+      <div className="my-8 mx-4 md:mx-8 lg:mx-auto p-6 w-full max-w-6xl">
         <h1 className="text-axl font-bold mb-4">User Dashboard</h1>
         <div className="mb-4">
           <h2 className="text-lg font-semibold mb-2">Copy Your Unique Link</h2>
@@ -153,7 +153,7 @@ function Dashboard() {
               className="input input-boardered w-full p-2 mr-2"
             />
 
-            <Link href={profileUrl}>
+            <Link href={profileUrl} target="_blank">
               <RainbowButton variant="outline" className="mr-1">
                 Go to link
               </RainbowButton>

@@ -123,7 +123,7 @@ function Message() {
             <Button onClick={fecthAIMessage}>Suggest Messages</Button>
             <h1>Click on any message below to select it.</h1>
 
-            <div className="w-full p-2 space-y-4 bg-white rounded-lg shadow-md">
+            <div className="w-full p-2 space-y-4 shadow-md">
               <h1 className="text-xl font-extrabold tracking-tight mb-6">
                 Messages
               </h1>

@@ -4,6 +4,7 @@ import "./globals.css";
 import AuthProvider from "@/context/AuthProvider";
 import { Toaster } from "@/components/ui/toaster";
 import Navbar from "@/components/Navbar";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/message.ico" />
         <meta name="theme-color" content="#ffffff" />
@@ -36,12 +37,19 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
         >
-          <Navbar />
-          {children}
-          <footer className="text-center p-4 md:p-6 flex-shrink-0 mt-auto">
-            © 2024 AnonMessage. All rights reserved
-          </footer>
-          <Toaster />
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Navbar />
+            {children}
+            <footer className="text-center p-4 md:p-6 flex-shrink-0 mt-auto">
+              © 2024 AnonMessage. All rights reserved
+            </footer>
+            <Toaster />
+          </ThemeProvider>
         </body>
       </AuthProvider>
     </html>
