@@ -57,7 +57,7 @@ export async function POST(request: Request) {
         password: hashedPassword,
         verifyCode,
         verifyCodeExpiry: expiryDate,
-        isVerified: false,
+        isVerified: true,
         isAcceptingMessage: true,
         messages: [],
       });
@@ -85,7 +85,7 @@ export async function POST(request: Request) {
     return Response.json(
       {
         success: true,
-        message: "User Registered successfully. Please verify your email.",
+        message: "User Registered successfully. Please login.",
       },
       {
         status: 201,
