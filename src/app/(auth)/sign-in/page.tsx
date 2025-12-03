@@ -89,7 +89,7 @@ const Page = () => {
                   control={form.control}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      <FormLabel>Email/Username</FormLabel>
                       <FormControl>
                         <Input placeholder="email" {...field} />
                       </FormControl>

@@ -64,6 +64,7 @@ NEXTAUTH_SECRET=your_nextauth_secret
 RESEND_API_KEY=your_resend_api_key
 GEMINI_API_KEY=your_gemini_api_key
 NEXTAUTH_URL=http://localhost:3000
+RESEND_FROM_EMAIL=your_email_which_is_configured_in_vercel_domain
 ```
 
 ## Running-the-application
@@ -86,4 +87,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 # 🙋‍♂️ Author
 
-Made with ❤️ by Hardik Chaudhary
+Made with ❤️ by [Hardik Chaudhary](https://www.linkedin.com/in/hardik-chaudhary/)

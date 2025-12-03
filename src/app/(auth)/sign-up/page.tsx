@@ -87,7 +87,7 @@ const Page = () => {
           title: "Success",
           description: response.data.message,
         });
-        router.replace(`/sign-in`);
+        router.replace(`/verify-code/${username}`);
       }
     } catch (error) {
       console.error("Error in signup of user", error);

@@ -1,36 +1,29 @@
-import { createTransport } from "nodemailer";
+import { Resend } from "resend";
 import { render } from "@react-email/render";
 import VerificationEmail from "../../emails/VerificationEmail";
-import type SMTPTransport from "nodemailer/lib/smtp-transport";
-import { ApiResponse } from "@/types/ApiResponse";
 
 export async function sendVerificationEmail(
   email: string,
   username: string,
   verifyCode: string
-): Promise<ApiResponse> {
+) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
     const emailHtml = await render(
       VerificationEmail({ username, otp: verifyCode })
     );
 
-    const transporter = createTransport({
-      host: process.env.MAILTRAP_HOST,
-      port: Number(process.env.MAILTRAP_PORT),
-      auth: {
-        user: process.env.MAILTRAP_USERNAME,
-        pass: process.env.MAILTRAP_PASSWORD,
-      },
-    } as SMTPTransport.Options);
-    await transporter.sendMail({
-      from: '"AnonMessage" <no-reply@fake.com>',
+    await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL!,
       to: email,
       subject: "AnonMessage | Verification code",
       html: emailHtml,
     });
-    return { success: true, message: "Verification email send successfully" };
-  } catch (emailError) {
-    console.log("Error sending verification email", emailError);
+
+    return { success: true, message: "Verification email sent successfully" };
+  } catch (error) {
+    console.error("Error sending verification email", error);
     return { success: false, message: "Failed to send verification email" };
   }
 }

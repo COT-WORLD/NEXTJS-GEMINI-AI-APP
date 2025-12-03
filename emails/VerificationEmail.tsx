@@ -24,7 +24,7 @@ export default function VerificationEmail({
   return (
     <Html lang="en" dir="ltr">
       <Head>
-        <title>Verification Code</title>
+        <title>Verification Code || AnonMessage</title>
         <Font
           fontFamily="Roboto"
           fallbackFontFamily="Verdana"
@@ -37,7 +37,7 @@ export default function VerificationEmail({
         />
       </Head>
 
-      <Preview>Your verification code: {otp}</Preview>
+      <Preview>Your AnonMessage verification code: {otp}</Preview>
 
       <Section style={{ backgroundColor: "#f4f4f7", padding: "40px 0" }}>
         <Container
@@ -67,8 +67,8 @@ export default function VerificationEmail({
             <Text
               style={{ fontSize: "16px", color: "#555", marginBottom: "16px" }}
             >
-              Thank you for signing up! Please use the verification code below
-              to complete your registration:
+              Thank you for signing up on AnnonMessage! Please use the
+              verification code below to complete your registration:
             </Text>
           </Row>
 
