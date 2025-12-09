@@ -24,7 +24,7 @@ function Dashboard() {
   const { toast } = useToast();
 
   const handleDeleteMessage = (messageId: string) => {
-    setMessages(messages.filter((message) => message._id !== messageId));
+    setMessages(messages.filter((msg) => msg._id.toString() !== messageId));
   };
 
   const { data: session, status } = useSession();
