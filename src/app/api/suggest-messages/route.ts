@@ -8,7 +8,7 @@ export async function GET() {
 
     const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! });
     const response = await genAI.models.generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-2.5-flash-lite",
       contents: prompt,
     });
     const output = await response.text!;
